@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/landing-page.min.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="index.js" defer></script>
+
+  </head>
+
+  <body>
+
+    <div id="app">
+    <nav class="navbar navbar-light bg-light static-top">
+
+        <div class="vue-component"></div>
+
+        <a class="btn btn-primary" href="#/news">News</a>
+   
+    </nav> 
+
+        <router-view></router-view>
+
+<template>
+    <datepicker :readonly="true" format="YYYY-MM-DD"></datepicker>
+    <datepicker format="YYYY-M-D" value="2015-9-5"></datepicker>
+    <datepicker :readonly="true" format="MMM/D/YYYY" width="300px"></datepicker>
+    <datepicker :readonly="true" format="MMM/D/YYYY" width="300px" name="date"></datepicker>
+</template>
+
+<script>
+
+
+<template id="News-Page">
+  <div class="vue-component">
+  <center><h2>News Page</h2></center>
+
+ <div v-for="individual_news in news" class="col-lg-10"> 
+
+    <h4 class="card-title individual_news"> {{ individual_news.title }}</h4>
+
+    <h6 class="card-title individual_news"> Author:{{ individual_news.author }}</h6>
+
+    <div class="card-title individual_news"> Description:{{ individual_news.description }}</div>
+
+    <a v-bind:href="individual_news.url">See more</a>
+    </br>
+    
+    <!-- <a v-bind:href="individual_news.urlToImgae"> -->
+    <!-- <img v-bind:src="individual_news.urlToImgae"/> Image -->
+    <!-- </a> -->
+
+    </div>
+  </div>
+</template>
